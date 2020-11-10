@@ -52,7 +52,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Pacman.ico</ApplicationIcon>
+    <ApplicationIcon>Wumpus.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <StartupObject />
@@ -171,7 +171,7 @@
     <None Include="Resources\audio1.wav" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Pacman.ico" />
+    <Content Include="Wumpus.ico" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">
