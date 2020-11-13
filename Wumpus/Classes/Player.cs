@@ -72,8 +72,7 @@ namespace Wumpus
             Lives--;
             if (Lives > 0)
             {
-                Form1.pacman.Set_Pacman();
-                Form1.ghost.ResetGhosts();
+                Form1.pacman.Set_Agent();
                 SetLives();
             }
             else

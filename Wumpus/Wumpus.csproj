@@ -79,11 +79,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\Audio.cs" />
-    <Compile Include="Classes\Food.cs" />
+    <Compile Include="Classes\Cell.cs" />
     <Compile Include="Classes\FormElements.cs" />
     <Compile Include="Classes\GameBoard.cs" />
-    <Compile Include="Classes\Ghost.cs" />
     <Compile Include="Classes\HighScore.cs" />
     <Compile Include="Classes\Player.cs" />
     <Compile Include="Form1.cs">
