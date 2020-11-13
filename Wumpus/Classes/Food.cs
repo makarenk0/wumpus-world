@@ -29,7 +29,7 @@ namespace Pacman
                         FoodImage[y, x] = new PictureBox();
                         FoodImage[y, x].Name = "FoodImage" + Amount.ToString();
                         FoodImage[y, x].SizeMode = PictureBoxSizeMode.AutoSize;
-                        FoodImage[y, x].Location = new Point(x * 16 - 1, y * 16 + 47);
+                        FoodImage[y, x].Location = new Point(x * 32 - 1, y * 32 + 47);
                         if (Form1.gameboard.Matrix[y,x] == 1)
                         {
                             FoodImage[y, x].Image = Properties.Resources.Block_1;

@@ -77,10 +77,10 @@ namespace Pacman
             {
                 switch (direction)
                 {
-                    case 1: PacmanImage.Top -= 16; yCoordinate--; break;
-                    case 2: PacmanImage.Left += 16; xCoordinate++; break;
-                    case 3: PacmanImage.Top += 16; yCoordinate++; break;
-                    case 4: PacmanImage.Left -= 16; xCoordinate--; break;
+                    case 1: PacmanImage.Top -= 32; yCoordinate--; break;
+                    case 2: PacmanImage.Left += 32; xCoordinate++; break;
+                    case 3: PacmanImage.Top += 32; yCoordinate++; break;
+                    case 4: PacmanImage.Left -= 32; xCoordinate--; break;
                 }
                 currentDirection = direction;
                 UpdatePacmanImage();
@@ -102,9 +102,9 @@ namespace Pacman
         private void UpdatePacmanImage()
         {
             // Update Pacman image
-            PacmanImage.Image = PacmanImages.Images[((currentDirection - 1) * 4) + imageOn];
-            imageOn++;
-            if (imageOn > 3) { imageOn = 0; }
+            PacmanImage.Image = PacmanImages.Images[((currentDirection - 1) * 4)];
+            //imageOn++;
+            //if (imageOn > 3) { imageOn = 0; }
         }
 
         private bool check_direction(int direction)
@@ -123,7 +123,7 @@ namespace Pacman
         private bool direction_ok(int x, int y)
         {
             // Check if board space can be used
-            if (x < 0) { xCoordinate = 27; PacmanImage.Left = 429; return true ; }
+            if (x < 0) { xCoordinate = 27; PacmanImage.Left = 2 * 429; return true ; }
             if (x > 27) { xCoordinate = 0; PacmanImage.Left = -5; return true; }
             if (Form1.gameboard.Matrix[y, x] < 4) { return true; } else { return false; }
         }
@@ -142,7 +142,7 @@ namespace Pacman
             nextDirection = 0;
             xCoordinate = xStart;
             yCoordinate = yStart;
-            PacmanImage.Location = new Point(xStart * 16 - 3, yStart * 16 + 43);
+            PacmanImage.Location = new Point(xStart * 32 - 3, yStart * 32 + 43);
         }
     }
 }

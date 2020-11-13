@@ -12,7 +12,7 @@ namespace Pacman
 {
     public class Ghost
     {
-        private const int GhostAmount = 4;
+        private const int GhostAmount = 0;
 
         public int Ghosts = GhostAmount;
         private ImageList GhostImages = new ImageList();
@@ -114,7 +114,7 @@ namespace Pacman
             {
                 xCoordinate[x] = xStart[x];
                 yCoordinate[x] = yStart[x];
-                GhostImage[x].Location = new Point(xStart[x] * 16 - 3, yStart[x] * 16 + 43);
+                GhostImage[x].Location = new Point(xStart[x] * 32 - 3, yStart[x] * 32 + 43);
                 GhostImage[x].Image = GhostImages.Images[x * 4];
                 Direction[x] = 0;
                 State[x] = 0;
@@ -139,8 +139,8 @@ namespace Pacman
             {
                 if (State[x] == 2)
                 {
-                    int xpos = xStart[x] * 16 - 3;
-                    int ypos = yStart[x] * 16 + 43;
+                    int xpos = xStart[x] * 32 - 3;
+                    int ypos = yStart[x] * 32 + 43;
                     if (GhostImage[x].Left > xpos) { GhostImage[x].Left--; }
                     if (GhostImage[x].Left < xpos) { GhostImage[x].Left++; }
                     if (GhostImage[x].Top  > ypos) { GhostImage[x].Top--; }
@@ -150,8 +150,8 @@ namespace Pacman
                         State[x] = 0;
                         xCoordinate[x] = xStart[x];
                         yCoordinate[x] = yStart[x];
-                        GhostImage[x].Left = xStart[x] * 16 - 3;
-                        GhostImage[x].Top = yStart[x] * 16 + 43;
+                        GhostImage[x].Left = xStart[x] * 32 - 3;
+                        GhostImage[x].Top = yStart[x] * 32 + 43;
                     }
                 } 
             }
@@ -202,10 +202,10 @@ namespace Pacman
                 {
                     switch (Direction[x])
                     {
-                        case 1: GhostImage[x].Top -= 16; yCoordinate[x]--; break;
-                        case 2: GhostImage[x].Left += 16; xCoordinate[x]++; break;
-                        case 3: GhostImage[x].Top += 16; yCoordinate[x]++; break;
-                        case 4: GhostImage[x].Left -= 16; xCoordinate[x]--; break;
+                        case 1: GhostImage[x].Top -= 32; yCoordinate[x]--; break;
+                        case 2: GhostImage[x].Left += 32; xCoordinate[x]++; break;
+                        case 3: GhostImage[x].Top += 32; yCoordinate[x]++; break;
+                        case 4: GhostImage[x].Left -= 32; xCoordinate[x]--; break;
                     }
                     switch (State[x])
                     {
