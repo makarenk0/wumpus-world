@@ -1,4 +1,4 @@
-﻿namespace Pacman
+﻿namespace Wumpus
 {
     partial class Form1
     {

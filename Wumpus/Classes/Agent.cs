@@ -8,9 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pacman
+namespace Wumpus
 {
-    public class Pacman
+    public class Agent
     {
         // Initialise variables
         public int xCoordinate = 0;
@@ -25,33 +25,33 @@ namespace Pacman
 
         private int imageOn = 0;
 
-        public Pacman()
+        public Agent()
         {
             timer.Interval = 100;
             timer.Enabled = true;
             timer.Tick += new EventHandler(timer_Tick);
 
-            PacmanImages.Images.Add(Properties.Resources.Pacman_1_0);
+            PacmanImages.Images.Add(Properties.Resources.AgentUp);
             PacmanImages.Images.Add(Properties.Resources.Pacman_1_1);
             PacmanImages.Images.Add(Properties.Resources.Pacman_1_2);
             PacmanImages.Images.Add(Properties.Resources.Pacman_1_3);
 
-            PacmanImages.Images.Add(Properties.Resources.Pacman_2_0);
+            PacmanImages.Images.Add(Properties.Resources.AgentRight);
             PacmanImages.Images.Add(Properties.Resources.Pacman_2_1);
             PacmanImages.Images.Add(Properties.Resources.Pacman_2_2);
             PacmanImages.Images.Add(Properties.Resources.Pacman_2_3);
 
-            PacmanImages.Images.Add(Properties.Resources.Pacman_3_0);
+            PacmanImages.Images.Add(Properties.Resources.AgentDown);
             PacmanImages.Images.Add(Properties.Resources.Pacman_3_1);
             PacmanImages.Images.Add(Properties.Resources.Pacman_3_2);
             PacmanImages.Images.Add(Properties.Resources.Pacman_3_3);
 
-            PacmanImages.Images.Add(Properties.Resources.Pacman_4_0);
+            PacmanImages.Images.Add(Properties.Resources.AgentLeft);
             PacmanImages.Images.Add(Properties.Resources.Pacman_4_1);
             PacmanImages.Images.Add(Properties.Resources.Pacman_4_2);
             PacmanImages.Images.Add(Properties.Resources.Pacman_4_3);
 
-            PacmanImages.ImageSize = new Size(27,28);
+            PacmanImages.ImageSize = new Size(16,32);
         }
 
         public void CreatePacmanImage(Form formInstance, int StartXCoordinate, int StartYCoordinate)
@@ -103,8 +103,6 @@ namespace Pacman
         {
             // Update Pacman image
             PacmanImage.Image = PacmanImages.Images[((currentDirection - 1) * 4)];
-            //imageOn++;
-            //if (imageOn > 3) { imageOn = 0; }
         }
 
         private bool check_direction(int direction)
@@ -137,12 +135,12 @@ namespace Pacman
         public void Set_Pacman()
         {
             // Place Pacman in board
-            PacmanImage.Image = Properties.Resources.Pacman_2_1;
+            PacmanImage.Image = Properties.Resources.AgentRight;
             currentDirection = 0;
             nextDirection = 0;
             xCoordinate = xStart;
             yCoordinate = yStart;
-            PacmanImage.Location = new Point(xStart * 32 - 3, yStart * 32 + 43);
+            PacmanImage.Location = new Point(xStart * 32 + 10, yStart * 32 + 48);
         }
     }
 }

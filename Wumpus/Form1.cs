@@ -8,13 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pacman
+namespace Wumpus
 {
     public partial class Form1 : Form
     {
         public static GameBoard gameboard = new GameBoard();
         public static Food food = new Food();
-        public static Pacman pacman = new Pacman();
+        public static Agent pacman = new Agent();
         public static Ghost ghost = new Ghost();
         public static Player player = new Player();
         public static HighScore highscore = new HighScore();
@@ -24,7 +24,7 @@ namespace Pacman
         public Form1()
         {
             InitializeComponent();
-            SetupGame(1);
+            SetupGame(2);
         }
 
         public void SetupGame(int Level)

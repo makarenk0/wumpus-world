@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Pacman
+namespace Wumpus
 {
     public class Ghost
     {
@@ -93,9 +93,9 @@ namespace Pacman
         {
             // Find Ghost locations
             int Amount = -1;
-            for (int y = 0; y < 30; y++)
+            for (int y = 0; y < Form1.gameboard.Matrix.GetLength(0); y++)
             {
-                for (int x = 0; x < 27; x++)
+                for (int x = 0; x < Form1.gameboard.Matrix.GetLength(1); x++)
                 {
                     if (Form1.gameboard.Matrix[y, x] == 15)
                     {

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Pacman
+namespace Wumpus
 {
     public class Player
     {
@@ -23,7 +23,7 @@ namespace Pacman
                 LifeImage[x] = new PictureBox();
                 LifeImage[x].Name = "Life" + x.ToString();
                 LifeImage[x].SizeMode = PictureBoxSizeMode.AutoSize;
-                LifeImage[x].Location = new Point(x * 30 + 3, 550);
+                LifeImage[x].Location = new Point(x * 30 + 300, 0);
                 LifeImage[x].Image = Properties.Resources.Life;
                 formInstance.Controls.Add(LifeImage[x]);
                 LifeImage[x].BringToFront();
