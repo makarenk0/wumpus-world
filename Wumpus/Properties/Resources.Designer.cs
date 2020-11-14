@@ -101,6 +101,46 @@ namespace Wumpus.Properties {
         }
         
         /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowDown {
+            get {
+                object obj = ResourceManager.GetObject("ArrowDown", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowLeft {
+            get {
+                object obj = ResourceManager.GetObject("ArrowLeft", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowRight {
+            get {
+                object obj = ResourceManager.GetObject("ArrowRight", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap ArrowUp {
+            get {
+                object obj = ResourceManager.GetObject("ArrowUp", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Поиск локализованного ресурса типа System.IO.UnmanagedMemoryStream, аналогичного System.IO.MemoryStream.
         /// </summary>
         internal static System.IO.UnmanagedMemoryStream audio1 {
@@ -112,9 +152,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Block_1 {
+        internal static System.Drawing.Bitmap breeze {
             get {
-                object obj = ResourceManager.GetObject("Block 1", resourceCulture);
+                object obj = ResourceManager.GetObject("breeze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -122,9 +162,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Block_2 {
+        internal static System.Drawing.Bitmap breeze_stench {
             get {
-                object obj = ResourceManager.GetObject("Block 2", resourceCulture);
+                object obj = ResourceManager.GetObject("breeze_stench", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -132,9 +172,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Board_1 {
+        internal static System.Drawing.Bitmap glitter {
             get {
-                object obj = ResourceManager.GetObject("Board 1", resourceCulture);
+                object obj = ResourceManager.GetObject("glitter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -142,9 +182,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap eyes {
+        internal static System.Drawing.Bitmap glitter_breeze {
             get {
-                object obj = ResourceManager.GetObject("eyes", resourceCulture);
+                object obj = ResourceManager.GetObject("glitter_breeze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -152,9 +192,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ghost_0_1 {
+        internal static System.Drawing.Bitmap glitter_stench {
             get {
-                object obj = ResourceManager.GetObject("Ghost 0 1", resourceCulture);
+                object obj = ResourceManager.GetObject("glitter_stench", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -162,169 +202,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Ghost_0_2 {
+        internal static System.Drawing.Bitmap glitter_stench_breeze {
             get {
-                object obj = ResourceManager.GetObject("Ghost 0 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_0_3 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 0 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_0_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 0 4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_1_1 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 1 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_1_2 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 1 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_1_3 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 1 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_1_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 1 4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_2_1 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 2 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_2_2 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 2 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_2_3 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 2 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_2_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 2 4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_3_1 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 3 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_3_2 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 3 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_3_3 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 3 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_3_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 3 4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_4 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 4", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Ghost_5 {
-            get {
-                object obj = ResourceManager.GetObject("Ghost 5", resourceCulture);
+                object obj = ResourceManager.GetObject("glitter_stench_breeze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -342,9 +222,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_0 {
+        internal static System.Drawing.Bitmap pit {
             get {
-                object obj = ResourceManager.GetObject("Pacman 0", resourceCulture);
+                object obj = ResourceManager.GetObject("pit", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -352,9 +232,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_1_0 {
+        internal static System.Drawing.Bitmap pit_glitter {
             get {
-                object obj = ResourceManager.GetObject("Pacman 1 0", resourceCulture);
+                object obj = ResourceManager.GetObject("pit_glitter", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -362,9 +242,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_1_1 {
+        internal static System.Drawing.Bitmap pit_stench {
             get {
-                object obj = ResourceManager.GetObject("Pacman 1 1", resourceCulture);
+                object obj = ResourceManager.GetObject("pit_stench", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -372,9 +252,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_1_2 {
+        internal static System.Drawing.Bitmap stench {
             get {
-                object obj = ResourceManager.GetObject("Pacman 1 2", resourceCulture);
+                object obj = ResourceManager.GetObject("stench", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -382,9 +262,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_1_3 {
+        internal static System.Drawing.Bitmap wall {
             get {
-                object obj = ResourceManager.GetObject("Pacman 1 3", resourceCulture);
+                object obj = ResourceManager.GetObject("wall", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -392,9 +272,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_2_0 {
+        internal static System.Drawing.Bitmap wall_green {
             get {
-                object obj = ResourceManager.GetObject("Pacman 2 0", resourceCulture);
+                object obj = ResourceManager.GetObject("wall_green", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -402,109 +282,9 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Pacman_2_1 {
+        internal static System.Drawing.Bitmap wumpus {
             get {
-                object obj = ResourceManager.GetObject("Pacman 2 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_2_2 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 2 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_2_3 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 2 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_3_0 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 3 0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_3_1 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 3 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_3_2 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 3 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_3_3 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 3 3", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_4_0 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 4 0", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_4_1 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 4 1", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_4_2 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 4 2", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Pacman_4_3 {
-            get {
-                object obj = ResourceManager.GetObject("Pacman 4 3", resourceCulture);
+                object obj = ResourceManager.GetObject("wumpus", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

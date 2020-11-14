@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Wumpus
+namespace Wumpus.Classes
 {
     public class Agent
     {
@@ -32,24 +32,17 @@ namespace Wumpus
             timer.Tick += new EventHandler(timer_Tick);
 
             PacmanImages.Images.Add(Properties.Resources.AgentUp);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_1_1);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_1_2);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_1_3);
 
+
+            Properties.Resources.AgentRight.MakeTransparent();
             PacmanImages.Images.Add(Properties.Resources.AgentRight);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_2_1);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_2_2);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_2_3);
+
+            
 
             PacmanImages.Images.Add(Properties.Resources.AgentDown);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_3_1);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_3_2);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_3_3);
-
+        
             PacmanImages.Images.Add(Properties.Resources.AgentLeft);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_4_1);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_4_2);
-            PacmanImages.Images.Add(Properties.Resources.Pacman_4_3);
+            
 
             PacmanImages.ImageSize = new Size(16,32);
         }
@@ -63,7 +56,10 @@ namespace Wumpus
             PacmanImage.SizeMode = PictureBoxSizeMode.AutoSize;
             Set_Agent();
             formInstance.Controls.Add(PacmanImage);
+            PacmanImage.BackColor = Color.Transparent;
             PacmanImage.BringToFront();
+
+           
         }
 
         //public void MovePacman(int direction)
@@ -135,12 +131,14 @@ namespace Wumpus
         public void Set_Agent()
         {
             // Place Pacman in board
+            
             PacmanImage.Image = Properties.Resources.AgentRight;
+            //PacmanImage.SendToBack();
             currentDirection = 0;
             nextDirection = 0;
             xCoordinate = xStart;
             yCoordinate = yStart;
-            PacmanImage.Location = new Point(xStart * 32 + 10, yStart * 32 + 48);
+            PacmanImage.Location = new Point(xStart * 32, yStart * 32 + 80);
         }
     }
 }

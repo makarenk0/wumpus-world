@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Wumpus
+namespace Wumpus.Classes
 {
     public partial class Form1 : Form
     {
@@ -20,7 +20,10 @@ namespace Wumpus
 
         public Form1()
         {
+            
             InitializeComponent();
+            
+           
             SetupGame(1);
         }
 
@@ -58,6 +61,8 @@ namespace Wumpus
         //        case Keys.Left: pacman.nextDirection = 4; pacman.MovePacman(4); break;
         //    }
         //}
+        
+
 
     }
 }

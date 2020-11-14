@@ -84,6 +84,7 @@
     <Compile Include="Classes\GameBoard.cs" />
     <Compile Include="Classes\HighScore.cs" />
     <Compile Include="Classes\Player.cs" />
+    <Compile Include="Classes\Utilities.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -173,6 +174,24 @@
     <None Include="Resources\AgentLeft.png" />
     <None Include="Resources\AgentRight.png" />
     <None Include="Resources\AgentUp.png" />
+    <None Include="Resources\ArrowDown.png" />
+    <None Include="Resources\ArrowLeft.png" />
+    <None Include="Resources\ArrowRight.png" />
+    <None Include="Resources\ArrowUp.png" />
+    <None Include="Resources\breeze.png" />
+    <None Include="Resources\pit.png" />
+    <None Include="Resources\stench.png" />
+    <None Include="Resources\wall.png" />
+    <None Include="Resources\wall_green.png" />
+    <None Include="Resources\wumpus.png" />
+    <None Include="Resources\glitter.png" />
+    <None Include="Resources\AgentRight.bmp" />
+    <None Include="Resources\breeze_stench.png" />
+    <None Include="Resources\glitter_breeze.png" />
+    <None Include="Resources\glitter_stench.png" />
+    <None Include="Resources\glitter_stench_breeze.png" />
+    <None Include="Resources\pit_glitter.png" />
+    <None Include="Resources\pit_stench.png" />
     <Content Include="Wumpus.ico" />
   </ItemGroup>
   <ItemGroup>

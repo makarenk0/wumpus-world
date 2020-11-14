@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Wumpus
+namespace Wumpus.Classes
 {
     public class Player
     {

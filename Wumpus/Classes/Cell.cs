@@ -1,13 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Wumpus.Classes
 {
     public class Cell
     {
+        private int _xCoordinate;
+        private int _yCoordinate;
+
+        const int _xOffset = 80;
+
         private bool _wall;
         private bool _wumpus;
         private bool _pit;
@@ -15,6 +22,8 @@ namespace Wumpus.Classes
         private bool _glitter;
         private bool _breeze;
         private bool _scream;
+
+        private PictureBox _pic;
 
         public bool Wall { get => _wall; set => _wall = value; }
         public bool Wumpus { get => _wumpus; set => _wumpus = value; }
@@ -24,9 +33,17 @@ namespace Wumpus.Classes
         public bool Breeze { get => _breeze; set => _breeze = value; }
         public bool Scream { get => _scream; set => _scream = value; }
 
-        public Cell(bool wall = false, bool wumpus = false, bool pit = false, bool stench = false, 
-                    bool glitter = false, bool breeze = false, bool scream = false)
+        public PictureBox Pic { get => _pic; set => _pic = value; }
+       
+        public int XCoordinate { get => _xCoordinate; set => _xCoordinate = value; }
+        public int YCoordinate { get => _yCoordinate; set => _yCoordinate = value; }
+
+        public Cell(int xCoordinate, int yCoordinate, bool wall = false, bool wumpus = false, bool pit = false, 
+            bool stench = false, bool glitter = false, bool breeze = false, bool scream = false)
         {
+            _xCoordinate = xCoordinate;
+            _yCoordinate = yCoordinate;
+
             Wall = wall;
             Wumpus = wumpus;
             Pit = pit;
@@ -34,6 +51,26 @@ namespace Wumpus.Classes
             Glitter = glitter;
             Breeze = breeze;
             Scream = scream;
+
+            Pic = new PictureBox();
+            Pic.SizeMode = PictureBoxSizeMode.AutoSize;
+            Pic.Location = new Point(xCoordinate * 32 , yCoordinate * 32 + _xOffset);
+
+            if (Wall) Pic.Image = Utilities.ChooseRandomly(0, 2) == 0 ? Properties.Resources.wall : Properties.Resources.wall_green;
+            else if (Glitter && Stench && Breeze) Pic.Image = Properties.Resources.glitter_stench_breeze;
+            else if (Glitter && Stench) Pic.Image = Properties.Resources.glitter_stench;
+            else if (Glitter && Breeze) Pic.Image = Properties.Resources.glitter_breeze;
+            else if (Glitter && Pit) Pic.Image = Properties.Resources.pit_glitter;
+            else if (Glitter) Pic.Image = Properties.Resources.glitter;
+            else if (Pit) Pic.Image = Properties.Resources.pit;
+            else if (Stench) Pic.Image = Properties.Resources.stench;
+            else if (Breeze) Pic.Image = Properties.Resources.breeze;
+            else if (Wumpus) Pic.Image = Properties.Resources.wumpus;
+            
+
+
+
+
         }
     }
 }
