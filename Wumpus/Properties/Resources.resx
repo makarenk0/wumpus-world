@@ -187,4 +187,19 @@
   <data name="wumpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\wumpus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="pit_wumpus" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pit_wumpus.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="pit_wumpus_gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\pit_wumpus_gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wumpus_breeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wumpus_breeze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wumpus_gold" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wumpus_gold.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="wumpus_gold_breeze" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\wumpus_gold_breeze.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

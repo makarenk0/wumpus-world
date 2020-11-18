@@ -252,6 +252,26 @@ namespace Wumpus.Properties {
         /// <summary>
         ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pit_wumpus {
+            get {
+                object obj = ResourceManager.GetObject("pit_wumpus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap pit_wumpus_gold {
+            get {
+                object obj = ResourceManager.GetObject("pit_wumpus_gold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap stench {
             get {
                 object obj = ResourceManager.GetObject("stench", resourceCulture);
@@ -285,6 +305,36 @@ namespace Wumpus.Properties {
         internal static System.Drawing.Bitmap wumpus {
             get {
                 object obj = ResourceManager.GetObject("wumpus", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wumpus_breeze {
+            get {
+                object obj = ResourceManager.GetObject("wumpus_breeze", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wumpus_gold {
+            get {
+                object obj = ResourceManager.GetObject("wumpus_gold", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap wumpus_gold_breeze {
+            get {
+                object obj = ResourceManager.GetObject("wumpus_gold_breeze", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

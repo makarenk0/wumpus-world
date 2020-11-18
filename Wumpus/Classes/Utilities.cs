@@ -14,7 +14,7 @@ namespace Wumpus.Classes
                 byte[] rno = new byte[5];
                 rg.GetBytes(rno);
 
-                int n = from + (Math.Abs(BitConverter.ToInt32(rno, 0)) % to);
+                int n = from + (Math.Abs(BitConverter.ToInt32(rno, 0)) % (to - from));
                 return n;
             }
         }
