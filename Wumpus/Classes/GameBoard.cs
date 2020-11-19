@@ -17,7 +17,7 @@ namespace Wumpus.Classes
         public Cell[,] Matrix;
 
 
-        const int _mapWidth = 6, _mapHeight = 6;
+        public const int _mapWidth = 6, _mapHeight = 6;
         const float _pitProbability = 0.2f;
 
 

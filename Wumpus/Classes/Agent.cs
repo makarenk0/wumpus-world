@@ -17,34 +17,44 @@ namespace Wumpus.Classes
         public int yCoordinate = 0;
         private int xStart = 0;
         private int yStart = 0;
-        public int currentDirection = 0;
-        public int nextDirection = 0;
-        public PictureBox PacmanImage = new PictureBox();
-        private ImageList PacmanImages = new ImageList(); 
+        public int currentDirection = 2;
+
+        public PictureBox AgentImage = new PictureBox();
+        private ImageList AgentImages = new ImageList(); 
         private Timer timer = new Timer();
 
         private int imageOn = 0;
 
+
+
+
+        private KnowledgeBase _knowledgeBase;
+        private const int _updateTime = 2000;
+
+
+
         public Agent()
         {
-            timer.Interval = 100;
+            timer.Interval = _updateTime;
             timer.Enabled = true;
             timer.Tick += new EventHandler(timer_Tick);
 
-            PacmanImages.Images.Add(Properties.Resources.AgentUp);
+            AgentImages.Images.Add(Properties.Resources.AgentUp);
 
 
-            Properties.Resources.AgentRight.MakeTransparent();
-            PacmanImages.Images.Add(Properties.Resources.AgentRight);
+
+            AgentImages.Images.Add(Properties.Resources.AgentRight);
+
+
+
+            AgentImages.Images.Add(Properties.Resources.AgentDown);
+
+            AgentImages.Images.Add(Properties.Resources.AgentLeft);
+
+
+            AgentImages.ImageSize = new Size(32,32);
 
             
-
-            PacmanImages.Images.Add(Properties.Resources.AgentDown);
-        
-            PacmanImages.Images.Add(Properties.Resources.AgentLeft);
-            
-
-            PacmanImages.ImageSize = new Size(16,32);
         }
 
         public void CreateAgentImage(Form formInstance, int StartXCoordinate, int StartYCoordinate)
@@ -52,38 +62,34 @@ namespace Wumpus.Classes
             // Create Pacman Image
             xStart = StartXCoordinate;
             yStart = StartYCoordinate;
-            PacmanImage.Name = "PacmanImage";
-            PacmanImage.SizeMode = PictureBoxSizeMode.AutoSize;
+            AgentImage.Name = "AgentImage";
+            AgentImage.SizeMode = PictureBoxSizeMode.AutoSize;
             Set_Agent();
-            formInstance.Controls.Add(PacmanImage);
-            PacmanImage.BackColor = Color.Transparent;
-            PacmanImage.BringToFront();
+            formInstance.Controls.Add(AgentImage);
+            AgentImage.BackColor = Color.Transparent;
+            AgentImage.BringToFront();
 
-           
+            _knowledgeBase = new KnowledgeBase(Form1.gameboard.Matrix.GetLength(1), Form1.gameboard.Matrix.GetLength(0), new Point(xStart, yStart));
         }
 
-        //public void MovePacman(int direction)
-        //{
-        //    // Move Pacman
-        //    bool CanMove = check_direction(nextDirection);
-        //    if (!CanMove) { CanMove = check_direction(currentDirection); direction = currentDirection; } else { direction = nextDirection; }
-        //    if (CanMove) { currentDirection = direction; }
+        public void MovePacman(int direction)
+        {
+            // Move Pacman
+            
+            currentDirection = direction; 
 
-        //    if (CanMove)
-        //    {
-        //        switch (direction)
-        //        {
-        //            case 1: PacmanImage.Top -= 32; yCoordinate--; break;
-        //            case 2: PacmanImage.Left += 32; xCoordinate++; break;
-        //            case 3: PacmanImage.Top += 32; yCoordinate++; break;
-        //            case 4: PacmanImage.Left -= 32; xCoordinate--; break;
-        //        }
-        //        currentDirection = direction;
-        //        UpdatePacmanImage();
-        //        CheckPacmanPosition();
-        //        Form1.ghost.CheckForPacman();
-        //    }
-        //}
+         
+            switch (direction)
+            {
+                 case 1: AgentImage.Top -= 32; yCoordinate--; break;
+                 case 2: AgentImage.Left += 32; xCoordinate++; break;
+                 case 3: AgentImage.Top += 32; yCoordinate++; break;
+                 case 4: AgentImage.Left -= 32; xCoordinate--; break;
+            }
+            currentDirection = direction;
+            UpdatePacmanImage();
+          
+        }
 
         //private void CheckPacmanPosition()
         //{
@@ -98,7 +104,7 @@ namespace Wumpus.Classes
         private void UpdatePacmanImage()
         {
             // Update Pacman image
-            PacmanImage.Image = PacmanImages.Images[((currentDirection - 1) * 4)];
+            AgentImage.Image = AgentImages.Images[(currentDirection - 1)];
         }
 
         //private bool check_direction(int direction)
@@ -125,20 +131,23 @@ namespace Wumpus.Classes
         private void timer_Tick(object sender, EventArgs e)
         {
             // Keep moving pacman
-            //MovePacman(currentDirection);
+            Cell current = Form1.gameboard.Matrix[yCoordinate, xCoordinate];
+            _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, current.Stench, current.Breeze, current.Glitter, current.Scream);
+            MovePacman(currentDirection);
+            --currentDirection;
+            if (currentDirection == 0) currentDirection = 4;
         }
 
         public void Set_Agent()
         {
             // Place Pacman in board
-            
-            PacmanImage.Image = Properties.Resources.AgentRight;
+
+            AgentImage.Image = Properties.Resources.AgentRight;
             //PacmanImage.SendToBack();
-            currentDirection = 0;
-            nextDirection = 0;
+            currentDirection = 2;
             xCoordinate = xStart;
             yCoordinate = yStart;
-            PacmanImage.Location = new Point(xStart * 32, yStart * 32 + 80);
+            AgentImage.Location = new Point(xStart * 32, yStart * 32 + 80);
         }
     }
 }
