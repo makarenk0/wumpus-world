@@ -92,6 +92,7 @@
     <Compile Include="Classes\FormElements.cs" />
     <Compile Include="Classes\GameBoard.cs" />
     <Compile Include="Classes\HighScore.cs" />
+    <Compile Include="Classes\InformedAlgorithms.cs" />
     <Compile Include="Classes\KnowledgeBase.cs" />
     <Compile Include="Classes\KnowledgeUnit.cs" />
     <Compile Include="Classes\Player.cs" />

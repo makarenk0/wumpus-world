@@ -132,10 +132,10 @@ namespace Wumpus.Classes
         {
             // Keep moving pacman
             Cell current = Form1.gameboard.Matrix[yCoordinate, xCoordinate];
-            _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, current.Stench, current.Breeze, current.Glitter, current.Scream);
+            _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, currentDirection, current.Stench, current.Breeze, current.Glitter, current.Scream);
+            currentDirection = _knowledgeBase.GetStep(xCoordinate, yCoordinate);
             MovePacman(currentDirection);
-            --currentDirection;
-            if (currentDirection == 0) currentDirection = 4;
+            
         }
 
         public void Set_Agent()

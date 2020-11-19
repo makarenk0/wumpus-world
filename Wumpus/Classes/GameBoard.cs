@@ -98,7 +98,7 @@ namespace Wumpus.Classes
             }
             int wumpusX = Utilities.ChooseRandomly(1, mapWidth - 1);
             int wumpusY = Utilities.ChooseRandomly(1, mapHeight - 1);
-            Console.WriteLine(String.Concat("Wumpus", wumpusX, ",", wumpusY));
+            //Console.WriteLine(String.Concat("Wumpus", wumpusX, ",", wumpusY));
             if (wumpusY == mapHeight - 2 && wumpusX == 1)
             {
                 wumpusX += mapWidth - 3;
@@ -111,7 +111,7 @@ namespace Wumpus.Classes
 
             int goldX = Utilities.ChooseRandomly(1, mapWidth - 1);
             int goldY = Utilities.ChooseRandomly(1, mapHeight - 1);
-            Console.WriteLine(String.Concat("Wumpus", goldX, ",", goldY));
+            //Console.WriteLine(String.Concat("Wumpus", goldX, ",", goldY));
             if (goldY == mapHeight - 2 && goldX == 1)
             {
                 goldX += mapWidth - 3;
