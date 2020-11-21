@@ -59,6 +59,7 @@ namespace Wumpus.Classes
 
         public void LoadResource()
         {
+            Pic.Image = null;
             if (Wall) Pic.Image = Utilities.ChooseRandomly(0, 2) == 0 ? Properties.Resources.wall : Properties.Resources.wall_green;
             else if (Wumpus && Glitter && Breeze) Pic.Image = Properties.Resources.wumpus_gold_breeze;
             else if (Pit && Wumpus && Glitter) Pic.Image = Properties.Resources.pit_wumpus_gold;

@@ -29,7 +29,7 @@ namespace Wumpus.Classes
 
 
         private KnowledgeBase _knowledgeBase;
-        private const int _updateTime = 2000;
+        private const int _updateTime = 200;
 
 
 
@@ -69,6 +69,7 @@ namespace Wumpus.Classes
             AgentImage.BackColor = Color.Transparent;
             AgentImage.BringToFront();
 
+            Form1.player.AgentStatusText.Text = "Exploring";
             _knowledgeBase = new KnowledgeBase(Form1.gameboard.Matrix.GetLength(1), Form1.gameboard.Matrix.GetLength(0), new Point(xStart, yStart));
         }
 
@@ -86,7 +87,6 @@ namespace Wumpus.Classes
                  case 3: AgentImage.Top += 32; yCoordinate++; break;
                  case 4: AgentImage.Left -= 32; xCoordinate--; break;
             }
-            currentDirection = direction;
             UpdatePacmanImage();
           
         }
@@ -104,7 +104,11 @@ namespace Wumpus.Classes
         private void UpdatePacmanImage()
         {
             // Update Pacman image
-            AgentImage.Image = AgentImages.Images[(currentDirection - 1)];
+            if(currentDirection != 0)
+            {
+                Form1.highscore.UpdateHighScore(-1);
+                AgentImage.Image = AgentImages.Images[(currentDirection - 1)];
+            }
         }
 
         //private bool check_direction(int direction)
@@ -133,7 +137,21 @@ namespace Wumpus.Classes
             // Keep moving pacman
             Cell current = Form1.gameboard.Matrix[yCoordinate, xCoordinate];
             _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, currentDirection, current.Stench, current.Breeze, current.Glitter, current.Scream);
-            currentDirection = _knowledgeBase.GetStep(xCoordinate, yCoordinate);
+            if (!_knowledgeBase.Stop)
+            {
+                currentDirection = _knowledgeBase.GetStep(xCoordinate, yCoordinate);
+            }
+            else
+            {
+                currentDirection = 0;
+            }
+
+            if (current.Glitter)
+            {
+                current.Glitter = false;
+                current.LoadResource();
+            }
+            
             MovePacman(currentDirection);
             
         }
@@ -149,5 +167,7 @@ namespace Wumpus.Classes
             yCoordinate = yStart;
             AgentImage.Location = new Point(xStart * 32, yStart * 32 + 80);
         }
+
+        
     }
 }

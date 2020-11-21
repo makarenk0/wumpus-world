@@ -10,7 +10,7 @@ namespace Wumpus.Classes
 {
     public class HighScore
     {
-        public const int InitalScore = 100;
+        public const int InitalScore = 0;
         public Label HighScoreText = new Label();
         public int Score = InitalScore;
 
@@ -19,7 +19,7 @@ namespace Wumpus.Classes
             // Create Score label
             HighScoreText.ForeColor = System.Drawing.Color.White;
             HighScoreText.Font = new System.Drawing.Font("Folio XBd BT", 14);
-            HighScoreText.Top = 23;
+            HighScoreText.Top = 33;
             HighScoreText.Left = 170;
             HighScoreText.Height = 20;
             HighScoreText.Width = 100;
@@ -30,7 +30,7 @@ namespace Wumpus.Classes
 
         public void UpdateHighScore(int value = InitalScore)
         {
-            Score = value;
+            Score += value;
             HighScoreText.Text = Score.ToString();
         }
 

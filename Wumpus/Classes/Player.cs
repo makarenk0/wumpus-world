@@ -14,20 +14,21 @@ namespace Wumpus.Classes
         public int Score = 0;
         public int Lives = 3;
         public Label ScoreText = new Label();
+        public Label AgentStatusText = new Label();
         public PictureBox[] LifeImage = new PictureBox[MaxLives];
 
         public void CreateLives(Form formInstance)
         {
-            for(int x = 0; x < MaxLives; x++)
-            {
-                LifeImage[x] = new PictureBox();
-                LifeImage[x].Name = "Life" + x.ToString();
-                LifeImage[x].SizeMode = PictureBoxSizeMode.AutoSize;
-                LifeImage[x].Location = new Point(x * 30 + 300, 0);
-                LifeImage[x].Image = Properties.Resources.Life;
-                formInstance.Controls.Add(LifeImage[x]);
-                LifeImage[x].BringToFront();
-            }
+            //for(int x = 0; x < MaxLives; x++)
+            //{
+            //    LifeImage[x] = new PictureBox();
+            //    LifeImage[x].Name = "Life" + x.ToString();
+            //    LifeImage[x].SizeMode = PictureBoxSizeMode.AutoSize;
+            //    LifeImage[x].Location = new Point(x * 30 + 300, 0);
+            //    LifeImage[x].Image = Properties.Resources.Life;
+            //    formInstance.Controls.Add(LifeImage[x]);
+            //    LifeImage[x].BringToFront();
+            //}
             SetLives();
         }
 
@@ -36,12 +37,24 @@ namespace Wumpus.Classes
             // Create Score label
             ScoreText.ForeColor = System.Drawing.Color.White;
             ScoreText.Font = new System.Drawing.Font("Folio XBd BT", 14);
-            ScoreText.Top = 23;
+            ScoreText.Top = 33;
             ScoreText.Left = 30;
             ScoreText.Height = 20;
             ScoreText.Width = 100;
             formInstance.Controls.Add(ScoreText);
             ScoreText.BringToFront();
+
+
+            AgentStatusText.ForeColor = System.Drawing.Color.White;
+            AgentStatusText.Font = new System.Drawing.Font("Folio XBd BT", 14);
+            AgentStatusText.Top = 33;
+            AgentStatusText.Left = 350;
+            AgentStatusText.Height = 30;
+            AgentStatusText.Width = 100;
+            formInstance.Controls.Add(AgentStatusText);
+            AgentStatusText.BringToFront();
+           
+
             UpdateScore(0);
         }
 
@@ -56,14 +69,14 @@ namespace Wumpus.Classes
         public void SetLives()
         {
             // Display lives in form
-            for (int x=0; x<Lives+1; x++)
-            {
-                LifeImage[x].Visible = true;
-            }
-            for (int x = Lives-1; x < MaxLives; x++)
-            {
-                LifeImage[x].Visible = false;
-            }
+            //for (int x=0; x<Lives+1; x++)
+            //{
+            //    LifeImage[x].Visible = true;
+            //}
+            //for (int x = Lives-1; x < MaxLives; x++)
+            //{
+            //    LifeImage[x].Visible = false;
+            //}
         }
 
         public void LoseLife()

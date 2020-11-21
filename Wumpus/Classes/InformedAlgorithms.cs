@@ -15,9 +15,14 @@ namespace Wumpus.Classes
         private List<KeyValuePair<int, Point>> _frontier;
         private Point _endPoint;
         private Point _startPoint;
+        private Point _targetPoint;
+        private bool _explore;
 
-        public InformedAlgorithms(int startX, int startY, KnowledgeUnit[,] map)
+        public Point TargetPoint { get => _targetPoint; set => _targetPoint = value; }
+
+        public InformedAlgorithms(int startX, int startY, KnowledgeUnit[,] map, bool explore = true)
         {
+            _explore = explore;
             _map = map;
             //_foodPoint = FoodCoordinate();
             _startPoint = new Point(startX, startY);
@@ -70,11 +75,25 @@ namespace Wumpus.Classes
                 var current = _frontier.Last();
                 _frontier.RemoveAt(_frontier.Count - 1);
 
-                if(_map[current.Value.Y, current.Value.X].IsSave() && !_map[current.Value.Y, current.Value.X].Visited)
+                if (_explore)
                 {
-                    _endPoint = new Point(current.Value.X, current.Value.Y);
-                    break;
+                    if (_map[current.Value.Y, current.Value.X].IsSave() && !_map[current.Value.Y, current.Value.X].Visited)
+                    {
+                        _endPoint = new Point(current.Value.X, current.Value.Y);
+                        break;
+                    }
                 }
+                else
+                {
+                    if (current.Value.Y == TargetPoint.Y && current.Value.X == TargetPoint.X)
+                    {
+                        _endPoint = new Point(current.Value.X, current.Value.Y);
+                        break;
+                    }
+                }
+                
+
+
                 foreach(var next in GetNeighbours(current.Value))
                 {
                     if (!_cameFrom.ContainsKey(next))

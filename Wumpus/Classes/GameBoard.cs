@@ -17,8 +17,8 @@ namespace Wumpus.Classes
         public Cell[,] Matrix;
 
 
-        public const int _mapWidth = 6, _mapHeight = 6;
-        const float _pitProbability = 0.2f;
+        public const int _mapWidth = 20, _mapHeight = 20;
+        const float _pitProbability = 0.001f;
 
 
         Form _form;
@@ -29,7 +29,7 @@ namespace Wumpus.Classes
             BoardImage.Name = "BoardImage";
             BoardImage.SizeMode = PictureBoxSizeMode.AutoSize;
             
-            BoardImage.Location = new Point(0, 50);
+            BoardImage.Location = new Point(0, 60);
 
             //BoardImage.Image = Properties.Resources.Board_1; //background map image
             _form = formInstance;
@@ -81,7 +81,7 @@ namespace Wumpus.Classes
             {
                 for (int x = 0; x < Matrix.GetLength(1); x++)
                 {
-                    if (y == mapHeight - 2 && x == 1) continue;  //start player position
+                    if ((y == mapHeight - 2 && x == 1) || (y == mapHeight - 3 && x == 1) || (y == mapHeight - 2 && x == 2)) continue;  //start player position and cells near it
                     if (y == 0 || y == mapHeight - 1 || x == 0 || x == mapWidth - 1)
                     {
                         Matrix[y, x].Wall = true;

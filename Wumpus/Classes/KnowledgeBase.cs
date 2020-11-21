@@ -15,9 +15,13 @@ namespace Wumpus.Classes
 
         Point _exit;
         bool _wumpusRegonized = false;
+        bool _stop;
+        bool _returning;
 
         public KnowledgeBase(int mapWidth, int mapHeight, Point exit)
         {
+            Stop = false;
+            Returning = false;
             _knowledge = new KnowledgeUnit[mapHeight, mapWidth];
             _steps = new Deque<Point>();
             for (int y = 0; y < _knowledge.GetLength(0); y++)
@@ -43,6 +47,9 @@ namespace Wumpus.Classes
             _knowledge[exit.Y, exit.X].Visited = true;
         }
 
+        public bool Stop { get => _stop; set => _stop = value; }
+        public bool Returning { get => _returning; set => _returning = value; }
+
         public int GetStep(int x, int y)
         {
             Point current = new Point(x, y);
@@ -52,7 +59,7 @@ namespace Wumpus.Classes
             else if (current.Y > target.Y) return 1;
             else if (current.Y < target.Y) return 3;
             return 0;
-        }
+        } 
 
         public void PerceiveData(int x, int y, int currentDirection, bool stench = false, bool breeze = false, bool glitter = false, bool scream = false, bool bump = false)
         {
@@ -63,8 +70,12 @@ namespace Wumpus.Classes
             _knowledge[y, x].Visited = true;
 
             //_knowledge[y, x].Wall = bump;  //TO DO: wall to neighbour cell
-            
 
+            if (glitter)
+            {
+                GrabGold(x, y);
+                return;
+            }
 
 
             if (!stench)
@@ -88,7 +99,7 @@ namespace Wumpus.Classes
             }
 
 
-            if(_steps.Count == 0)
+            if(_steps.Count == 0 && !Returning)
             {
                 InformedAlgorithms informed = new InformedAlgorithms(x, y, _knowledge);
                 List<Point> res = informed.GreedyAlgorithm();
@@ -97,7 +108,24 @@ namespace Wumpus.Classes
                 {
                     _steps.AddToBack(p);
                 }
+                if(res.Count == 0)
+                {
+                    ReturnScenario(x, y);
+                }
             }
+            else if(_steps.Count == 0 && Returning)
+            {
+                Stop = true;
+                Form1.player.AgentStatusText.Text = "Finished";
+            }
+            
+
+        }
+
+        public void GrabGold(int x, int y)
+        {
+            Form1.highscore.UpdateHighScore(1000);
+            ReturnScenario(x, y);
         }
 
 
@@ -127,6 +155,21 @@ namespace Wumpus.Classes
                     _knowledge[y, x].Wumpus = false;
 
                 }
+            }
+        }
+
+
+        private void ReturnScenario(int x, int y)
+        {
+            Returning = true;
+            Form1.player.AgentStatusText.Text = "Returning";
+            InformedAlgorithms informedReturn = new InformedAlgorithms(x, y, _knowledge, false);
+            informedReturn.TargetPoint = _exit;
+            List<Point> resReturn = informedReturn.GreedyAlgorithm();
+            resReturn.RemoveAt(0);
+            foreach (var p in resReturn)
+            {
+                _steps.AddToBack(p);
             }
         }
     }

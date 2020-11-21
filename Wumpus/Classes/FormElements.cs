@@ -6,6 +6,7 @@ namespace Wumpus.Classes
     {
         public Label PlayerOneScoreText = new Label();
         public Label HighScoreText = new Label();
+        public Label StatusText = new Label();
 
         public void CreateFormElements(Form formInstance)
         {
@@ -26,6 +27,15 @@ namespace Wumpus.Classes
             HighScoreText.Width = 200;
             HighScoreText.Text = "HIGH SCORE";
             formInstance.Controls.Add(HighScoreText);
+
+            StatusText.ForeColor = System.Drawing.Color.White;
+            StatusText.Font = new System.Drawing.Font("Folio XBd BT", 14);
+            StatusText.Top = 5;
+            StatusText.Left = 355;
+            StatusText.Height = 20;
+            StatusText.Width = 200;
+            StatusText.Text = "Status";
+            formInstance.Controls.Add(StatusText);
         }
     }
 }

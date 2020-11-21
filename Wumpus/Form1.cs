@@ -24,7 +24,7 @@ namespace Wumpus.Classes
             InitializeComponent();
             
            
-            SetupGame(1);
+            SetupGame(0);
         }
 
         public void SetupGame(int Level)
