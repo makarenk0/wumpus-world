@@ -99,9 +99,12 @@ namespace Wumpus.Classes
             int wumpusX = Utilities.ChooseRandomly(1, mapWidth - 1);
             int wumpusY = Utilities.ChooseRandomly(1, mapHeight - 1);
             //Console.WriteLine(String.Concat("Wumpus", wumpusX, ",", wumpusY));
-            if (wumpusY == mapHeight - 2 && wumpusX == 1)
+            if ((wumpusY == mapHeight - 2 && wumpusX == 1) ||
+                (wumpusY == mapHeight - 3 && wumpusX == 1) ||
+                (wumpusY == mapHeight - 2 && wumpusX == 2)
+                )
             {
-                wumpusX += mapWidth - 3;
+                wumpusX += 2;
             }
 
             Matrix[wumpusY, wumpusX].Wumpus = true;

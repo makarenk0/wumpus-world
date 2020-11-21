@@ -14,9 +14,14 @@ namespace Wumpus.Classes
         private Deque<Point> _steps;
 
         Point _exit;
+
         bool _wumpusRegonized = false;
+        int _wumpusDir;
+        Point _wumpusCoords;
+
         bool _stop;
         bool _returning;
+        bool _ignoreStench = false;
 
         public KnowledgeBase(int mapWidth, int mapHeight, Point exit)
         {
@@ -49,16 +54,16 @@ namespace Wumpus.Classes
 
         public bool Stop { get => _stop; set => _stop = value; }
         public bool Returning { get => _returning; set => _returning = value; }
+        public bool WumpusRegonized { get => _wumpusRegonized; set => _wumpusRegonized = value; }
+        public int WumpusDir { get => _wumpusDir; set => _wumpusDir = value; }
+        public bool IgnoreStench { get => _ignoreStench; set => _ignoreStench = value; }
 
         public int GetStep(int x, int y)
         {
             Point current = new Point(x, y);
             Point target = new Point((Size)_steps.RemoveFromFront());
-            if (current.X > target.X) return 4;
-            else if (current.X < target.X) return 2;
-            else if (current.Y > target.Y) return 1;
-            else if (current.Y < target.Y) return 3;
-            return 0;
+            
+            return GetDirection(current, target);
         } 
 
         public void PerceiveData(int x, int y, int currentDirection, bool stench = false, bool breeze = false, bool glitter = false, bool scream = false, bool bump = false)
@@ -75,6 +80,11 @@ namespace Wumpus.Classes
             {
                 GrabGold(x, y);
                 return;
+            }
+
+            if (scream)
+            {
+                _knowledge[_wumpusCoords.Y, _wumpusCoords.X].Wumpus = false;
             }
 
 
@@ -131,7 +141,7 @@ namespace Wumpus.Classes
 
         private void RecognizeWumpus(int x, int y)
         {
-            KeyValuePair<bool, Point> res = new KeyValuePair<bool, Point>();
+            
             List<KnowledgeUnit> around = new List<KnowledgeUnit>();
             around.Add(_knowledge[y - 1, x]);
             around.Add(_knowledge[y + 1, x]);
@@ -142,7 +152,9 @@ namespace Wumpus.Classes
                 int numberWumpus = around.IndexOf(around.Find(m => m.Wumpus));
                 RemoveAllWumpusAssuming();
                 around.ElementAt(numberWumpus).Wumpus = true;
-                _wumpusRegonized = true;
+                _wumpusCoords = new Point(around.ElementAt(numberWumpus).XCoordinate, around.ElementAt(numberWumpus).YCoordinate);
+                WumpusDir = GetDirection(new Point(x, y), _wumpusCoords);
+                WumpusRegonized = true;
             }
         }
 
@@ -171,6 +183,15 @@ namespace Wumpus.Classes
             {
                 _steps.AddToBack(p);
             }
+        }
+
+        private int GetDirection(Point fst, Point snd)
+        {
+            if (fst.X > snd.X) return 4;
+            else if (fst.X < snd.X) return 2;
+            else if (fst.Y > snd.Y) return 1;
+            else if (fst.Y < snd.Y) return 3;
+            return 0;
         }
     }
 }

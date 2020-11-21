@@ -18,10 +18,17 @@ namespace Wumpus.Classes
         private int xStart = 0;
         private int yStart = 0;
         public int currentDirection = 2;
+        private int _arrowsNum = 1;
 
         public PictureBox AgentImage = new PictureBox();
-        private ImageList AgentImages = new ImageList(); 
+       
+        private ImageList AgentImages = new ImageList();
+
+
+        public PictureBox ArrowImage = new PictureBox();
+
         private Timer timer = new Timer();
+        private Timer timerArrow = new Timer();
 
         private int imageOn = 0;
 
@@ -29,9 +36,15 @@ namespace Wumpus.Classes
 
 
         private KnowledgeBase _knowledgeBase;
-        private const int _updateTime = 200;
+        private const int _updateTime = 2000;
+        private const int _updateArrowTime = _updateTime/2;
+
+        private Form _formInstance;
 
 
+
+        private bool _scream = false;
+        public bool Scream { get => _scream; set => _scream = value; }
 
         public Agent()
         {
@@ -65,12 +78,17 @@ namespace Wumpus.Classes
             AgentImage.Name = "AgentImage";
             AgentImage.SizeMode = PictureBoxSizeMode.AutoSize;
             Set_Agent();
+
+            _formInstance = formInstance;
             formInstance.Controls.Add(AgentImage);
+
             AgentImage.BackColor = Color.Transparent;
             AgentImage.BringToFront();
 
             Form1.player.AgentStatusText.Text = "Exploring";
             _knowledgeBase = new KnowledgeBase(Form1.gameboard.Matrix.GetLength(1), Form1.gameboard.Matrix.GetLength(0), new Point(xStart, yStart));
+            
+          
         }
 
         public void MovePacman(int direction)
@@ -111,32 +129,21 @@ namespace Wumpus.Classes
             }
         }
 
-        //private bool check_direction(int direction)
-        //{
-        //    // Check if pacman can move to space
-        //    switch (direction)
-        //    {
-        //        case 1: return direction_ok(xCoordinate, yCoordinate - 1);
-        //        case 2: return direction_ok(xCoordinate + 1, yCoordinate);
-        //        case 3: return direction_ok(xCoordinate, yCoordinate + 1);
-        //        case 4: return direction_ok(xCoordinate - 1, yCoordinate);
-        //        default: return false;
-        //    }
-        //}
-
-        //private bool direction_ok(int x, int y)
-        //{
-        //    // Check if board space can be used
-        //    if (x < 0) { xCoordinate = 27; PacmanImage.Left = 2 * 429; return true ; }
-        //    if (x > 27) { xCoordinate = 0; PacmanImage.Left = -5; return true; }
-        //    if (Form1.gameboard.Matrix[y, x] < 4) { return true; } else { return false; }
-        //}
-
         private void timer_Tick(object sender, EventArgs e)
         {
-            // Keep moving pacman
+            
             Cell current = Form1.gameboard.Matrix[yCoordinate, xCoordinate];
-            _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, currentDirection, current.Stench, current.Breeze, current.Glitter, current.Scream);
+
+            
+
+            _knowledgeBase.PerceiveData(xCoordinate, yCoordinate, currentDirection, current.Stench, current.Breeze, current.Glitter, Scream);
+            if (_knowledgeBase.WumpusRegonized && _arrowsNum > 0)
+            {
+                Shoot(xCoordinate, yCoordinate, _knowledgeBase.WumpusDir);
+
+            }
+
+
             if (!_knowledgeBase.Stop)
             {
                 currentDirection = _knowledgeBase.GetStep(xCoordinate, yCoordinate);
@@ -150,6 +157,11 @@ namespace Wumpus.Classes
             {
                 current.Glitter = false;
                 current.LoadResource();
+            }
+
+            if (Scream)
+            {
+                Scream = false;
             }
             
             MovePacman(currentDirection);
@@ -166,6 +178,59 @@ namespace Wumpus.Classes
             xCoordinate = xStart;
             yCoordinate = yStart;
             AgentImage.Location = new Point(xStart * 32, yStart * 32 + 80);
+        }
+
+
+        private int _arrowX, _arrowY, _arrowDir;
+
+        
+
+        private void Shoot(int x, int y, int dir)
+        {
+            --_arrowsNum;
+            _arrowDir = dir;
+            _arrowX = x;
+            _arrowY = y;
+
+            if (dir == 1) ArrowImage.Image = Properties.Resources.ArrowUp;
+            else if(dir == 2) ArrowImage.Image = Properties.Resources.ArrowRight;
+            else if(dir == 3) ArrowImage.Image = Properties.Resources.ArrowDown;
+            else if(dir == 4) ArrowImage.Image = Properties.Resources.ArrowLeft;
+            
+            ArrowImage.Location = new Point(x * 32 + ((dir-1) % 2 == 0 ? 14 : 5), y * 32 + 80 + ((dir - 1) % 2 == 0 ? 5 : 14));
+            _formInstance.Controls.Add(ArrowImage);
+            ArrowImage.SizeMode = PictureBoxSizeMode.AutoSize;
+            ArrowImage.BringToFront();
+
+            timerArrow.Interval = _updateArrowTime;
+            timerArrow.Enabled = true;
+            timerArrow.Tick += new EventHandler(ShootTick);
+        }
+
+
+        private void ShootTick(object sender, EventArgs e)
+        {
+
+            switch (_arrowDir)
+            {
+                case 1: ArrowImage.Top -= 32; _arrowY--; break;
+                case 2: ArrowImage.Left += 32; _arrowX++; break;
+                case 3: ArrowImage.Top += 32; _arrowY++; break;
+                case 4: ArrowImage.Left -= 32; _arrowX--; break;
+            }
+
+            if(Form1.gameboard.Matrix[_arrowY, _arrowX].Wumpus)
+            {
+                Form1.gameboard.Matrix[_arrowY, _arrowX].Wumpus = false;
+                Form1.gameboard.Matrix[_arrowY, _arrowX].Stench = true;
+                Form1.gameboard.Matrix[_arrowY, _arrowX].LoadResource();
+                Scream = true;
+                _formInstance.Controls.Remove(ArrowImage);
+                timerArrow.Stop();
+                timerArrow.Dispose();
+            }
+
+            
         }
 
         
